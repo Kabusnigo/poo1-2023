@@ -20,7 +20,7 @@ public class LeerArchivo {
         	f = new File("./io/Loco.txt");
         	// Reader nos permite leerlo
         	fr = new FileReader (f);
-        	// Buffered, nos permite leer con nextLine cada linea
+        	// Buffered, nos permite leer con readLine cada linea
         	// del archivo
             br = new BufferedReader(fr);
             // Lectura del fichero
