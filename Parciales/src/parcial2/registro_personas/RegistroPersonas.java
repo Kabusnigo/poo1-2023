@@ -97,7 +97,7 @@ public class RegistroPersonas {
 			for (Persona persona : personas) {
 				if (persona.getEdad() > edad) {
 					personasMayores.add(persona);
-					pr.println(persona.toString());
+					pr.println(persona);
 				}
 			}
 		} catch (IOException e) {
@@ -198,6 +198,8 @@ public class RegistroPersonas {
 		RegistroPersonas rp = new RegistroPersonas();
 		
 		LinkedList<Persona> personas = rp.getPersonas("personas.in");
+		
+		rp.getPersonasMayoresAEdad(personas, 34);
 		
 //		for (Persona persona : rp.ordernarPorNombre(rp.getPersonas("personas.in")))
 //			System.out.println(persona);
