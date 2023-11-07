@@ -49,7 +49,7 @@ public class ListasEj {
 	 */
 
 	// Usamos interfaces, por esos trabajos con polimorfirmos
-	public List<Integer> eliminarDuplicados(List<Integer> l) {
+	public Set<Integer> eliminarDuplicados(List<Integer> l) {
 		List<Integer> aux = new LinkedList<Integer>();
 
 //		for (Integer item : l) {
@@ -57,8 +57,14 @@ public class ListasEj {
 //				aux.add(item);
 //		}
 
-		Set<Integer> conjunto = new TreeSet<Integer>(l);
+//		Set<Integer> conjunto = new TreeSet<Integer>(l);
 		// conjunto.addAll(l);
+		
+		// Collections.reverseOrder() ya te lo ordena inversamente
+		// Tambien se puede implementar en
+		// PriorityQueue<Integer> colaP = new PriorityQueue<Integer>(Collections.reverseOrder());
+		Set<Integer> prueba = new TreeSet<Integer>(Collections.reverseOrder());
+		prueba.addAll(l);
 
 		// NO SE SIEMPRE RESPETARA EL ORDEN EN EL QUE SE INGRESO!!
 		// POR ESO NO SABRE EL ORDEN FINAL
@@ -66,7 +72,7 @@ public class ListasEj {
 
 		aux.addAll(lin);
 
-		return aux;
+		return prueba;
 	}
 
 	/**
@@ -162,6 +168,10 @@ public class ListasEj {
 
 		List<Integer> l3 = listas.dosListasEnOtraOrdenada(l1, l2);
 
+		System.out.println(listas.eliminarDuplicados(l1));
+		
+		System.out.println("-----------\n");
+		
 		System.out.println(l3);
 
 	}
