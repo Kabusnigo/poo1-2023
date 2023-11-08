@@ -1,0 +1,6 @@
+Mateo,Sosa,38708565,28
+Micaela,Paz,38956234,28
+Antonio,Moreno,41234122,24
+Alejandro,Quintero,10234984,73
+Santiango,Diaz,23567567,50
+Lucia,Mascherano,39809110,27
