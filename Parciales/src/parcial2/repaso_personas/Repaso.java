@@ -3,9 +3,17 @@ package parcial2.repaso_personas;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Repaso {
 
@@ -46,10 +54,62 @@ public class Repaso {
 			}
 		}
 	}
-	
+
 	public void mostrarDatos() {
 		for (Persona persona : datos)
 			System.out.println(persona);
 	}
-	
+
+	public void writeFile(String fileOut) throws ReadingException {
+		FileWriter fw = null;
+		PrintWriter pw = null;
+
+		try {
+			fw = new FileWriter(fileOut);
+			pw = new PrintWriter(fw);
+			Map<Integer, ArrayList<Persona>> listaEdad = this.getListaEdad();
+
+			for (Entry<Integer, ArrayList<Persona>> entry : listaEdad.entrySet()) {
+				pw.println("Edad: " + entry.getKey());
+				for (Persona p : entry.getValue())
+					pw.println(p);
+			}
+		} catch (IOException e) {
+			throw new ReadingException("No se pudo escribir el archivo.");
+		} finally {
+			if (pw != null)
+				pw.close();
+		}
+	}
+
+	public Map<Integer, ArrayList<Persona>> getListaEdad() {
+		Map<Integer, ArrayList<Persona>> listaEdad = new TreeMap<Integer, ArrayList<Persona>>();
+
+		Comparator<Persona> comparator = new Comparator<Persona>() {
+			public int compare(Persona p1, Persona p2) {
+				return p1.getDni().compareTo(p2.getDni());
+			}
+		};
+
+		for (Persona p : datos) {
+			if (listaEdad.containsKey(p.getEdad())) {
+				listaEdad.get(p.getEdad()).add(p);
+				Collections.sort(listaEdad.get(p.getEdad()), comparator);
+			} else {
+				ArrayList<Persona> personas = new ArrayList<Persona>();
+				personas.add(p);
+				listaEdad.put(p.getEdad(), personas);
+			}
+		}
+
+		for (Entry<Integer, ArrayList<Persona>> entry : listaEdad.entrySet()) {
+			System.out.println(entry.getKey());
+			for (Persona p : entry.getValue()) {
+				System.out.println(p);
+			}
+		}
+
+		return listaEdad;
+	}
+
 }

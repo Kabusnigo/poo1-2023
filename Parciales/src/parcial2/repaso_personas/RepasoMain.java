@@ -11,7 +11,13 @@ public class RepasoMain {
 			e.printStackTrace();
 		}
 		
-		repaso.mostrarDatos();
+		try {
+			repaso.writeFile("repaso_datos_personas_SALIDA.txt");
+		} catch(ReadingException e) {
+			e.printStackTrace();
+		}
+		
+		repaso.getListaEdad();
 	}
 	
 	

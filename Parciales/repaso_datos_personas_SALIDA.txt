@@ -1,0 +1,13 @@
+Edad: 24
+Antonio,Moreno,41234122
+Edad: 27
+Ezequiel,Calderón,39009013
+Lucia,Mascherano,39809110
+Edad: 28
+Mateo,Sosa,38708565
+Romina,Vallejos,38709234
+Micaela,Paz,38956234
+Edad: 50
+Santiango,Diaz,23567567
+Edad: 73
+Alejandro,Quintero,10234984

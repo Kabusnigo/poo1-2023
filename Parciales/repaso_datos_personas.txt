@@ -4,3 +4,5 @@ Antonio,Moreno,41234122,24
 Alejandro,Quintero,10234984,73
 Santiango,Diaz,23567567,50
 Lucia,Mascherano,39809110,27
+Ezequiel,Calderón,39009013,27
+Romina,Vallejos,38709234,28

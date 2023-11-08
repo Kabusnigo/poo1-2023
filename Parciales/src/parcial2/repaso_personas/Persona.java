@@ -48,7 +48,7 @@ public class Persona implements Comparable<Persona> {
 
 	@Override
 	public int compareTo(Persona p) {
-		return Integer.compare(this.getDni(), p.getDni());
+		return Integer.compare(edad, p.getEdad());
 	}
 
 	@Override
