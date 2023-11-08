@@ -8,7 +8,16 @@ class RepasoTest {
 
 	@Test
 	void readFileErrorTest() {
-		assertThrows(ReadingException.class, () -> new Repaso("repaso_datos_personas_ERROR.txt"));
+		Repaso repaso = new Repaso();
+		assertThrows(ReadingException.class, () -> repaso.readFile("repaso_datos_personas_ERROR.txt"));
+	}
+	
+	@Test
+	void readFileTest() throws ReadingException {
+		Repaso repaso = new Repaso();
+		repaso.readFile("repaso_datos_personas.txt");
+		repaso.mostrarDatos();
+		
 	}
 
 }

@@ -11,12 +11,11 @@ public class Repaso {
 
 	private List<Persona> datos;
 
-	public Repaso(String fileName) throws ReadingException {
-		datos = this.readFile(fileName);
+	public Repaso() {
+		datos = new ArrayList<Persona>();
 	}
 
-	private List<Persona> readFile(String fileName) throws ReadingException {
-		List<Persona> datosLeidos = null;
+	public void readFile(String fileName) throws ReadingException {
 		FileReader fr = null;
 		BufferedReader br = null;
 
@@ -24,13 +23,12 @@ public class Repaso {
 			fr = new FileReader(fileName);
 			br = new BufferedReader(fr);
 			String linea;
-			datosLeidos = new ArrayList<Persona>();
 			// Persona(nombre, apellido, dni, edad)
 			while ((linea = br.readLine()) != null) {
 				String[] datos = linea.split(",");
 				Integer dni = Integer.parseInt(datos[2]);
 				Integer edad = Integer.parseInt(datos[3]);
-				datosLeidos.add(new Persona(datos[0], datos[1], dni, edad));
+				this.datos.add(new Persona(datos[0], datos[1], dni, edad));
 			}
 		} catch (FileNotFoundException re) {
 			throw new ReadingException("El archivo no fue encontrado.");
@@ -47,8 +45,6 @@ public class Repaso {
 				}
 			}
 		}
-		
-		return datosLeidos;
 	}
 	
 	public void mostrarDatos() {
