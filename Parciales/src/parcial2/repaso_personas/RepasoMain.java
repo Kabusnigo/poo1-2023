@@ -18,6 +18,11 @@ public class RepasoMain {
 		}
 		
 		repaso.getListaEdad();
+		System.out.println("\n Nombres por letra:");
+		repaso.nombresConLaLetra('A');
+		
+		System.out.println("\n Apellidos por letra:");
+		repaso.apellidoConLaLetra('M');
 	}
 	
 	

@@ -6,14 +6,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Queue;
+import java.util.Stack;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 public class Repaso {
 
@@ -104,12 +106,42 @@ public class Repaso {
 
 		for (Entry<Integer, ArrayList<Persona>> entry : listaEdad.entrySet()) {
 			System.out.println(entry.getKey());
-			for (Persona p : entry.getValue()) {
+			for (Persona p : entry.getValue())
 				System.out.println(p);
-			}
 		}
 
 		return listaEdad;
 	}
 
+	public void nombresConLaLetra(Character character) {
+		Stack<Persona> pila = new Stack<Persona>();
+		
+		for (Persona persona : datos) {
+			if (persona.getNombre().charAt(0) == character)
+				pila.push(persona);
+		}
+		
+		if (!pila.isEmpty()) {
+			while(!pila.isEmpty())
+				System.out.println(pila.pop());
+		} else
+			System.out.println("No hay nombre que empieza con la letra: " + character);
+		
+	}
+	
+	public void apellidoConLaLetra(Character character) {
+		Queue<Persona> cola = new ArrayDeque<Persona>();
+		
+		for (Persona persona : datos) {
+			if (persona.getApellido().charAt(0) == character)
+				cola.offer(persona);
+		}
+		
+		if (!cola.isEmpty()) {
+			while(!cola.isEmpty())
+				System.out.println(cola.poll());
+		} else
+			System.out.println("No hay nombre que empieza con la letra: " + character);
+		
+	}
 }
