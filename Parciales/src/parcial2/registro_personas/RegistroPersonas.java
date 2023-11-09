@@ -79,6 +79,7 @@ public class RegistroPersonas {
 				}
 			}
 		}
+		
 		return personas;
 	}
 	
