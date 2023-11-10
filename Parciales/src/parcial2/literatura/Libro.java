@@ -40,6 +40,8 @@ public class Libro implements Comparable<Libro> {
 
 	@Override
 	public int compareTo(Libro p) {
+		// Cuando comparto Strings
+//		return this.titulo.compareTo(p.getTitulo());
 		return Long.compare(this.isbn, p.getIsbn());
 	}
 

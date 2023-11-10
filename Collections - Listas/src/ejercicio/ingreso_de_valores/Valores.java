@@ -67,7 +67,16 @@ public class Valores {
 			System.out.println("El valor NO pertenece al conjunto A");
 	}
 	
-	// Ejercicio 06
+	// Ejercicio 06 - ESTA MAL HECHO, era: 
+//	List<Integer> auxConjunto = new.....;
+//	conjuntoC.addAll(conjuntoA);
+//	conjuntoC.addAll(conjuntoB);
+//	
+//	elemntosEnComun.addAll(conjuntoA);
+//	elemntosEnComun.retainAll(conjuntoB);}
+	
+//	conjuntoC.removeAll(elemntosEnComun);}
+//	return conjuntoC;
 	public int eliminarConjuntoAyB() {
 		return sumatoriaDelConjunto(this.conjuntoA) - sumatoriaDelConjunto(this.conjuntoB);
 	}

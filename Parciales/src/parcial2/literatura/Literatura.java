@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -54,10 +56,26 @@ public class Literatura {
 		}
 	}
 
-	public List<Libro> eliminarLibrosRepetidos(List<Libro> libros) {
+	public List<Libro> eliminarLibrosRepetidosOrdenadoPorISBN(List<Libro> libros) {
 		Set<Libro> aux = new TreeSet<Libro>(libros);
-
+		
 		List<Libro> listaSinLibrosRepetidos = new ArrayList<>(aux);
+
+		return listaSinLibrosRepetidos;
+	}
+	
+	public List<Libro> eliminarLibrosRepetidosOrdenadoPorTitulo(List<Libro> libros) {
+		Comparator<Libro> comparator = new Comparator<Libro>() {
+			@Override
+			public int compare(Libro o1, Libro o2) {
+				return o1.getTitulo().compareTo(o2.getTitulo());
+			}
+		};
+		Set<Libro> aux2 = new TreeSet<Libro>(comparator);
+
+		aux2.addAll(libros);
+		
+		List<Libro> listaSinLibrosRepetidos = new ArrayList<>(aux2);
 
 		return listaSinLibrosRepetidos;
 	}
@@ -106,7 +124,7 @@ public class Literatura {
 		libros.add(new Libro((long) (735), "Aveztrus"));
 		libros.add(new Libro((long) (2123), "Koala"));
 
-		List<Libro> nuevoslibros = lit.eliminarLibrosRepetidos(libros);
+		List<Libro> nuevoslibros = lit.eliminarLibrosRepetidosOrdenadoPorISBN(libros);
 
 		for (Libro libro : nuevoslibros)
 			System.out.println(libro);
