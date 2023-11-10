@@ -6,8 +6,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * 1. [3 puntos]. Implemente un método que dado un archivo de entrada (archivo
@@ -52,11 +54,31 @@ public class Literatura {
 		}
 	}
 	
+	public List<Libro> eliminarLibrosRepetidos(List<Libro> libros){
+		Set<Libro> aux = new TreeSet<Libro>(libros);
+		
+		List<Libro> listaSinLibrosRepetidos = new ArrayList<>(aux);
+		
+		return listaSinLibrosRepetidos;
+	}
+	
 	public static void main(String[] args) {
 		Literatura lit = new Literatura();
 		
 		lit.reemplazar("Texto.txt", "TextoReemplazado.txt", "kit", "set");
 		
+		List<Libro> libros = new ArrayList<>();
+		
+		libros.add(new Libro((long)(2123), "Koala"));
+		libros.add(new Libro((long)(21), "Loki"));
+		libros.add(new Libro((long)(21), "Loki"));
+		libros.add(new Libro((long)(735), "Aveztrus"));
+		libros.add(new Libro((long)(2123), "Koala"));
+		
+		List<Libro> nuevoslibros = lit.eliminarLibrosRepetidos(libros);
+		
+		for (Libro libro : nuevoslibros)
+			System.out.println(libro);
 		
 	}
 
