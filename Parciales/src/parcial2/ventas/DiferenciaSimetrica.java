@@ -1,8 +1,7 @@
 package parcial2.ventas;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -47,6 +46,24 @@ public class DiferenciaSimetrica {
 		diferenciaSimetrica.removeAll(tienenEnComun);
 		
 		return diferenciaSimetrica;
+	}
+	
+	
+	public List<Integer> diferenciaSimetrica(List<Integer> l1, List<Integer> l2) {
+		List<Integer> diferenciaSimetrica = new LinkedList<Integer>();
+		// recorro l1
+		for (Integer cadaElementoEnL1 : l1) {
+			if (!l2.contains(cadaElementoEnL1))
+				diferenciaSimetrica.add(cadaElementoEnL1);
+		}
+		// recorro l2
+		for (Integer cadaElementoEnL2 : l2) {
+			if (!l1.contains(cadaElementoEnL2))
+				diferenciaSimetrica.add(cadaElementoEnL2);
+		}
+
+		return diferenciaSimetrica;
+
 	}
 	
 	public static void main(String[] args) {
