@@ -96,6 +96,7 @@ public class Repaso {
 		for (Persona p : datos) {
 			if (listaEdad.containsKey(p.getEdad())) {
 				listaEdad.get(p.getEdad()).add(p);
+				// Ordeno el ArrayList de personas por dni.
 				Collections.sort(listaEdad.get(p.getEdad()), comparator);
 			} else {
 				ArrayList<Persona> personas = new ArrayList<Persona>();
