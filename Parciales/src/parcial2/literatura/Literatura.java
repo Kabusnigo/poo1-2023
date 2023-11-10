@@ -81,7 +81,7 @@ public class Literatura {
 				Integer numero = Integer.parseInt(string);
 				suma += numero;
 			} catch (NumberFormatException e) {
-				problemas.add(e.getLocalizedMessage());
+				problemas.add(e.getMessage());
 			} finally {
 				System.out.println("finally");
 			}
