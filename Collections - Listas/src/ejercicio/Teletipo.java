@@ -19,9 +19,8 @@ public class Teletipo {
 
 	public Teletipo(String caracteres) {
 		pila = new Stack<Character>();
-		for (int i = 0; i < caracteres.length(); i++) {
-			pila.push(Character.valueOf(caracteres.charAt(i)));
-		}
+		for (int i = 0; i < caracteres.length(); i++)
+			pila.push(caracteres.charAt(i));
 	}
 
 	public Stack<Character> getPila() {
@@ -41,13 +40,14 @@ public class Teletipo {
 
 	public String procesar() {
 		pila = invertirPila();
-		Stack<Character> tmp = new Stack<>();
-
-		while (!pila.empty()) {
-			Character c = pila.peek();
-			switch (c) {
+		
+		Stack<Character> tmp = new Stack<Character>();
+		
+		while (!pila.isEmpty()) {
+			Character character = pila.pop();
+			switch (character) {
 			case '/':
-				if (!tmp.empty())
+				if (!tmp.isEmpty())
 					tmp.pop();
 				break;
 			case '&':
@@ -56,41 +56,50 @@ public class Teletipo {
 				pila.pop();
 				break;
 			default:
-				tmp.push(c);
+				tmp.push(character);
 			}
 		}
+		
 
+//			case '&':
+//				while (!tmp.empty())
+//					tmp.pop();
+//				pila.pop();
+//				break;
+		
 		pila = tmp;
 		pila = invertirPila();
 		String cadenaResultado = "";
 
-		while (!pila.empty()) {
-			cadenaResultado += pila.peek();
-			pila.pop();
-		}
+		while (!pila.empty()) 
+			cadenaResultado += pila.pop();
 		
 		return cadenaResultado;
 	}
-}
-//	public static void main(String[] args) {
-//		
+
+	public static void main(String[] args) {
 //		Stack<Character> pila = new Stack<Character>();
-//		
-//		String palabra = "abc/d//e";
-//		
+
+		Teletipo teletipo = new Teletipo("abc/d//e");
+		
+//		System.out.println(teletipo.getPila());
+//		System.out.println(teletipo.invertirPila());
+		System.out.println(teletipo.procesar());
+
 //		char[] caracteres = palabra.toCharArray();
-//		
+//
 //		for (int i = 0; i < caracteres.length; i++)
 //			pila.push(caracteres[i]);
-//		
+//
 //		System.out.println(pila + "\n");
-//		
+//
 //		for (int i = 0; i < pila.size(); i++) {
 //			if (pila.get(i) == '/') {
 //				pila.pop();
 //			}
 //		}
-//		
+//
 //		System.out.println(pila);
-//		
-//	}
+
+	}
+}
