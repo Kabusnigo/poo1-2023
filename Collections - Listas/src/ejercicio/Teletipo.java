@@ -1,18 +1,18 @@
-package teletipo;
+package ejercicio;
 
 import java.util.Stack;
 
 public class Teletipo {
 
 	/**
-	 * En una terminal de teletipo existe un carácter de retroceso que permite
-	 * cancelar el último carácter. Por ejemplo: si el carácter de retroceso es /,
-	 * entonces la línea abc/d//e será interpretada como ae. Existe también un
-	 * carácter anulador que elimina todos los caracteres ingresados hasta el
-	 * momento, suponga que ese carácter es &. Realice un método que dada una tira
-	 * de caracteres terminadas con * (leída del archivo “Fuente.txt”) ejecute las
-	 * operaciones indicadas si se encuentra con el carácter / o el &. Debe por
-	 * último imprimir la tira resultante.
+	 * En una terminal de teletipo existe un carï¿½cter de retroceso que permite
+	 * cancelar el ï¿½ltimo carï¿½cter. Por ejemplo: si el carï¿½cter de retroceso es /,
+	 * entonces la lï¿½nea abc/d//e serï¿½ interpretada como ae. Existe tambiï¿½n un
+	 * carï¿½cter anulador que elimina todos los caracteres ingresados hasta el
+	 * momento, suponga que ese carï¿½cter es &. Realice un mï¿½todo que dada una tira
+	 * de caracteres terminadas con * (leï¿½da del archivo ï¿½Fuente.txtï¿½) ejecute las
+	 * operaciones indicadas si se encuentra con el carï¿½cter / o el &. Debe por
+	 * ï¿½ltimo imprimir la tira resultante.
 	 */
 
 	private Stack<Character> pila;
