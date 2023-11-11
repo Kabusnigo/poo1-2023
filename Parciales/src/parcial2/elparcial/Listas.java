@@ -7,7 +7,12 @@ public class Listas<T extends Comparable<T>> {
 	public boolean todosSonMenores(List<T> l1, List<T> l2) {
 		Collections.sort(l1);
 		Collections.sort(l2);
-		return l1.get(l1.size() - 1).compareTo(l2.get(l2.size() - 1)) < 0;
+		
+		if (l1.get(l1.size() - 1).compareTo(l2.get(l2.size() - 1)) == -1)
+			return true;
+		else
+			return false;
+//		return l1.get(l1.size() - 1).compareTo(l2.get(l2.size() - 1)) < 0;
 	}
 	/** ALTERNATIVA
 	 * public boolean todosSonMenores(List<T> l1, List<T> l2) {
