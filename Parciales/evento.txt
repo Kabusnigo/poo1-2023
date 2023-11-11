@@ -1,0 +1,8 @@
+"Sarsa",2,300
+"SanBoca",1,1000
+"RivSan",1,3000
+"RivSan",2,3000
+"RivSan",3,2000
+"SanBoca",15,4000
+"Sarsa",5,6012
+"Sarsa",1,3600
